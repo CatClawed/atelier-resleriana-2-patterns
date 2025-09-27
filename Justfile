@@ -14,3 +14,4 @@ extract:
     imhex --pl format textasset/ItemFlavorText_2.txt patterns/itemflavortext.hexpat output/ItemFlavorText_2.json
     imhex --pl format textasset/ItemInfo.txt patterns/iteminfo.hexpat output/ItemInfo.json
     imhex --pl format textasset/ItemKind_2.txt patterns/itemkind.hexpat output/ItemKind_2.json
+    imhex --pl format textasset/ItemKindGroup.txt patterns/itemkindgroup.hexpat output/ItemKindGroup.json

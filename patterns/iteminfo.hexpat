@@ -2,7 +2,7 @@ import type.base;
 import std.io;
 
 struct Header {
-    u32 Magic; // 0x0E
+    u32 Magic; // 0x0C
     u32 Count;
     u32 Unknown[24];
 };
