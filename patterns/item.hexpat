@@ -34,7 +34,7 @@ struct Item {
     type::Hex<u32> UnknownId16;
     u32 Unknown8;
     u32 Unknown9;
-    u32 UnknownId17;
+    u32 ItemColorTypeId;
     u32 Flag4;
     u32 UnknownId18; // nullable
 } [[format("format_item")]];
