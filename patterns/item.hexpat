@@ -18,7 +18,7 @@ struct Item {
     u32 UnknownId4;
     u32 UnknownId5;
     u32 UnknownId6;
-    u32 UnknownId7; // some category?
+    u32 ItemKindId;
     type::Bin<u32> Unknown2; // bitset of 6 bits?
     u32 CategoryId1;
     u32 CategoryId2;
