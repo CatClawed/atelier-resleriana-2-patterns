@@ -1,9 +1,12 @@
 import type.base;
 import std.io;
 
-struct Header {
-    u32 Magic; // 0x05
-    u32 Count;
+struct Property {
+    u32 Tag;
+    u32 Id;
+} [[format("format_property")]];
+fn format_property(ref auto item) {
+    return std::format("{} - {}", item.Tag, item.Id);
 };
 
 struct ItemCategory {
@@ -18,9 +21,11 @@ fn format_category(ref auto item) {
 };
 
 struct FullFile {
-    Header header;
-    u32 Unknown[10];
-    ItemCategory Categories[header.Count];
+    u32 PropertyCount [[hidden]];
+    u32 ObjectCount [[hidden]];
+    
+    Property Properties[PropertyCount];
+    ItemCategory Object[ObjectCount];
 };
 
-FullFile file @ 0x00;
+FullFile File @ 0x00;

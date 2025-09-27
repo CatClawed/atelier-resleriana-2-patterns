@@ -1,10 +1,12 @@
 import type.base;
 import std.io;
 
-struct Header {
-    u32 Magic; // 0x0C
-    u32 Count;
-    u32 Unknown[24];
+struct Property {
+    u32 Tag;
+    u32 Id;
+} [[format("format_property")]];
+fn format_property(ref auto item) {
+    return std::format("{} - {}", item.Tag, item.Id);
 };
 
 struct ItemInfo {
@@ -28,8 +30,11 @@ fn format_iteminfo(ref auto item) {
 };
 
 struct FullFile {
-    Header header;
-    ItemInfo FlavorTexts[header.Count];
+    u32 PropertyCount [[hidden]];
+    u32 ObjectCount [[hidden]];
+    
+    Property Properties[PropertyCount];
+    ItemInfo Object[ObjectCount];
 };
 
-FullFile file @ 0x00;
+FullFile File @ 0x00;

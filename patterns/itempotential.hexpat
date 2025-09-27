@@ -1,9 +1,11 @@
 import std.io;
 
-struct Header {
-    u32 Magic; // 0x0B
-    u32 Count;
-    u32 Unknown[22];
+struct Property {
+    u32 Tag;
+    u32 Id;
+} [[format("format_property")]];
+fn format_property(ref auto item) {
+    return std::format("{} - {}", item.Tag, item.Id);
 };
 
 struct ItemPotential {
@@ -24,8 +26,11 @@ fn format_potential(ref auto item) {
 };
 
 struct FullFile {
-    Header header;
-    ItemPotential ItemPotentials[header.Count];
+    u32 PropertyCount [[hidden]];
+    u32 ObjectCount [[hidden]];
+    
+    Property Properties[PropertyCount];
+    ItemPotential Object[ObjectCount];
 };
 
-FullFile file @ 0x00;
+FullFile File @ 0x00;

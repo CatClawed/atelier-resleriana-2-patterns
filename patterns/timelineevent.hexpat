@@ -2,12 +2,12 @@
 #pragma author Variant9
 #pragma description timeline event format for Atelier Resleriana 2
 
-#pragma magic 0x00000008
-
-struct Header {
-    u32 Magic; // 0x08
-    u32 LineCount;
-    s32 Unknown[16];
+struct Property {
+    u32 Tag;
+    u32 Id;
+} [[format("format_property")]];
+fn format_property(ref auto item) {
+    return std::format("{} - {}", item.Tag, item.Id);
 };
 
 struct U32String {
@@ -35,8 +35,11 @@ fn format_dialog(ref auto string) {
 };
 
 struct FullFile {
-    Header header;
-    DialogLine strings[header.LineCount];
+    u32 PropertyCount [[hidden]];
+    u32 ObjectCount [[hidden]];
+    
+    Property Properties[PropertyCount];
+    DialogLine Object[ObjectCount];
 };
 
-FullFile file @ 0x00;
+FullFile File @ 0x00;

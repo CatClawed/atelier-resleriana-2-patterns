@@ -1,9 +1,11 @@
 #include <std/io.pat>
 
-struct Header {
-    u32 Magic; // 0x10
-    u32 Count;
-    u32 Unknown[32];
+struct Property {
+    u32 Tag;
+    u32 Id;
+} [[format("format_property")]];
+fn format_property(ref auto item) {
+    return std::format("{} - {}", item.Tag, item.Id);
 };
 
 struct TraitInfo {
@@ -29,8 +31,11 @@ fn format_trait(ref auto trait) {
 };
 
 struct FullFile {
-    Header Header;
-    TraitInfo Traits[Header.Count];
+    u32 PropertyCount [[hidden]];
+    u32 ObjectCount [[hidden]];
+    
+    Property Properties[PropertyCount];
+    TraitInfo Object[ObjectCount];
 };
 
 FullFile File @ 0x00;
