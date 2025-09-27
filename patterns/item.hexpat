@@ -20,10 +20,10 @@ struct Item {
     u32 UnknownId6;
     u32 UnknownId7; // some category?
     type::Bin<u32> Unknown2; // bitset of 6 bits?
-    u32 UnknownId8; // grouping of item type, eg. groups water together
-    u32 UnknownId9;
-    u32 UnknownId10; // nullable
-    u32 UnknownId11; // nullable
+    u32 CategoryId1;
+    u32 CategoryId2;
+    u32 CategoryId3;
+    u32 CategoryId4;
     u32 UnknownId12; // similar function to id 8
     u32 UnknownId13; // same
     u32 Unknown6; // 50, 100 or 150

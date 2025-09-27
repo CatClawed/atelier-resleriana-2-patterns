@@ -9,3 +9,4 @@ extract:
     imhex --pl format textasset/Trait.txt patterns/trait.hexpat output/Trait.json
     imhex --pl format textasset/Item.txt patterns/item.hexpat output/Item.json
     imhex --pl format textasset/ItemPotential.txt patterns/itempotential.hexpat output/ItemPotential.json
+    imhex --pl format textasset/ItemCategory_2.txt patterns/itemcategory.hexpat output/ItemCategory_2.json
