@@ -11,7 +11,7 @@ struct Item {
     u32 ItemId; // type::Hex<u32>
     u32 Index;
     u32 NameStringId;
-    u32 UnknownId1;
+    u32 FlavorTextId;
     u32 PossiblyBasePrice;
     u32 UnknownId2;
     u32 UnknownId3;

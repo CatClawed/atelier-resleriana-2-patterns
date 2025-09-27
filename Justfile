@@ -11,3 +11,4 @@ extract:
     imhex --pl format textasset/ItemPotential.txt patterns/itempotential.hexpat output/ItemPotential.json
     imhex --pl format textasset/ItemCategory_2.txt patterns/itemcategory.hexpat output/ItemCategory_2.json
     imhex --pl format textasset/ItemColorType_2.txt patterns/itemcolortype.hexpat output/ItemColorType_2.json
+    imhex --pl format textasset/ItemFlavorText_2.txt patterns/itemflavortext.hexpat output/ItemFlavorText_2.json
