@@ -1,0 +1,53 @@
+import type.base;
+import std.io;
+
+struct Header {
+    u32 Magic; // 0x20
+    u32 Count;
+    u32 Unknown[64];
+};
+
+struct Item {
+    u32 ItemId; // type::Hex<u32>
+    u32 Index;
+    u32 NameStringId;
+    u32 UnknownId1;
+    u32 PossiblyBasePrice;
+    u32 UnknownId2;
+    u32 UnknownId3;
+    u32 UnknownId4;
+    u32 UnknownId5;
+    u32 UnknownId6;
+    u32 UnknownId7; // some category?
+    type::Bin<u32> Unknown2; // bitset of 6 bits?
+    u32 UnknownId8; // grouping of item type, eg. groups water together
+    u32 UnknownId9;
+    u32 UnknownId10; // nullable
+    u32 UnknownId11; // nullable
+    u32 UnknownId12; // similar function to id 8
+    u32 UnknownId13; // same
+    u32 Unknown6; // 50, 100 or 150
+    u32 Unknown7; // feels like bitmap
+    u32 PotentialId; // nullable
+    u32 UnknownSet[7]; // always zero
+    type::Hex<u32> UnknownId15; // kinda weird, idk
+    type::Hex<u32> UnknownId16;
+    u32 Unknown8;
+    u32 Unknown9;
+    u32 UnknownId17;
+    u32 Flag4;
+    u32 UnknownId18; // nullable
+} [[format("format_item")]];
+fn format_item(ref auto item) {
+    // return std::format("{:06b}", item.Unknown2);
+    return item.Flag4;
+    // return std::format("{} {}", item.UnknownId8, item.UnknownId9);
+    // return std::format("{:06b}", item.Unknown7);
+};
+
+struct FullFile {
+    Header header;
+    Item Items[header.Count];
+};
+
+FullFile file @ 0x00;
