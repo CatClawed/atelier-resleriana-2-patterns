@@ -1,8 +1,6 @@
 import type.base;
 import std.io;
 
-// I def understand that I don't understand this format. There's a pattern I'm missing.
-
 struct Property {
     u32 Tag;
     u32 Id;
