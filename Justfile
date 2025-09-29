@@ -1,22 +1,34 @@
 default:
     @just --list
 
+scenario:
+    #!/usr/bin/env bash
+    rm -rf scenario
+    mkdir scenario
+    for item in $(find textasset/ -name 'TIMELINEEVENT*' -printf '%f\n');
+        do i=${item%????};
+        echo $i
+        imhex --pl format textasset/${i}.txt patterns/multi-file/timelineevent.hexpat scenario/${i}.json;
+    done
+
 extract:
+    #!/usr/bin/env bash
     rm -rf output
     mkdir output
-    imhex --pl format textasset/Message_2.txt patterns/message.hexpat output/Message_2.json
-    imhex --pl format textasset/TIMELINEEVENT_A12_TOTORI_001ID_5.txt patterns/timelineevent.hexpat output/TIMELINEEVENT_A12_TOTORI_001ID_5.json
-    imhex --pl format textasset/Trait.txt patterns/trait.hexpat output/Trait.json
-    imhex --pl format textasset/TraitMix.txt patterns/traitmix.hexpat output/traitmix.json
-    imhex --pl format textasset/Item.txt patterns/item.hexpat output/Item.json
-    imhex --pl format textasset/ItemPotential.txt patterns/itempotential.hexpat output/ItemPotential.json
-    imhex --pl format textasset/ItemCategory_2.txt patterns/itemcategory.hexpat output/ItemCategory_2.json
-    imhex --pl format textasset/ItemColorType_2.txt patterns/itemcolortype.hexpat output/ItemColorType_2.json
-    imhex --pl format textasset/ItemFlavorText_2.txt patterns/itemflavortext.hexpat output/ItemFlavorText_2.json
-    imhex --pl format textasset/ItemInfo.txt patterns/iteminfo.hexpat output/ItemInfo.json
-    imhex --pl format textasset/ItemKind_2.txt patterns/itemkind.hexpat output/ItemKind_2.json
-    imhex --pl format textasset/ItemKindGroup.txt patterns/itemkindgroup.hexpat output/ItemKindGroup.json
-    imhex --pl format textasset/GimTreasure.txt patterns/gimtreasure.hexpat output/gimtreasure.json
-    imhex --pl format textasset/EnemyDataBase.txt patterns/enemydatabase.hexpat output/enemydatabase.json
-    imhex --pl format textasset/EnemyBaseInfo.txt patterns/enemybaseinfo.hexpat output/enemybaseinfo.json
-    imhex --pl format textasset/EnemyBaseStatus.txt patterns/enemybasestatus.hexpat output/enemybasestatus.json
+
+    imhex --pl format textasset/Message_2.txt patterns/multi-file/message.hexpat output/Message_ENG.json
+
+    idonly=(
+        TraitFactor
+        TraitKind
+        TraitLevelUPKind
+        TraitTiming
+    )
+    for item in "${idonly[@]}";
+        do imhex --pl format textasset/${item}.txt patterns/multi-file/idonly.hexpat output/${item}.json;
+    done
+
+    for item in $(find patterns/ -maxdepth 1 -type f -printf '%f\n');
+        do imhex --pl format textasset/${item::-7}.txt patterns/${item::-7}.hexpat output/${item::-7}.json;
+    done
+

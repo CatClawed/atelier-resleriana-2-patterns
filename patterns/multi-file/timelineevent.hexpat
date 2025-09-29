@@ -2,6 +2,9 @@
 #pragma author Variant9
 #pragma description timeline event format for Atelier Resleriana 2
 
+// works for majority of files
+// the offending ones have different properties? need to check more
+
 struct Property {
     u32 Tag;
     u32 Id;
@@ -37,7 +40,7 @@ fn format_dialog(ref auto string) {
 struct FullFile {
     u32 PropertyCount [[hidden]];
     u32 ObjectCount [[hidden]];
-    
+
     Property Properties[PropertyCount];
     DialogLine Object[ObjectCount];
 };

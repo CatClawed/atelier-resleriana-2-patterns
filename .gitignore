@@ -1,4 +1,5 @@
 textasset/
 output/
+scenario/
 *.hexproj
 list.txt
