@@ -14,26 +14,26 @@ struct TraitInfo {
     u32 Index; // index in the file, possibly
     u32 NameStringIndex;
     u32 DescriptionStringIndex;
-    u32 Unknown1;
-    u32 UnknownFlag1; // some kind of flag
-    u32 Value1;
+    u32 TraitKindId1;
+    u32 GatherableFlag; // some kind of flag
+    u32 Grade;
     u32 Unknown2; // bitmap maybe?
-    u32 Unknown3;
-    u32 Unknown4;
-    u32 Unknown5;
-    u32 Unknown6;
-    u32 Value2;
-    u32 Value3;
-    u32 Unknown7; // trait group id?
+    u32 TraitBaseId;
+    s32 Value1_1;
+    s32 Value1_2;
+    u32 TraitBaseId2;
+    s32 Value2_1;
+    s32 Value2_2;
+    u32 TraitKindId2; // trait group id?
 } [[format("format_trait")]];
 fn format_trait(ref auto trait) {
-    return std::format("Effect {} ({}, {}, {}) with values {}/{}/{}", trait.Unknown7, trait.Unknown1, trait.Unknown3, trait.Unknown6, trait.Value1, trait.Value2, trait.Value3);
+    return trait.Value2_2;
 };
 
 struct FullFile {
     u32 PropertyCount [[hidden]];
     u32 ObjectCount [[hidden]];
-    
+
     Property Properties[PropertyCount];
     TraitInfo Object[ObjectCount];
 };

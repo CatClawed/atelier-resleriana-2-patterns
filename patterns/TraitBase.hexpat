@@ -12,9 +12,9 @@ fn format_property(ref auto item) {
 struct TraitBase {
     u32 TraitBaseId;
     u32 Unknown1; // three or so values?
-    u32 Unknown2; // usually 1749388575
+    u32 TraitFactorId; // usually 1749388575
     u32 Unknown3; // nullable
-    u32 Unknown4; // nullable
+    u32 TraitTimingId; // nullable
     u32 Flag1;
     u32 Always5;
 } [[format("format_thing")]];
