@@ -23,6 +23,7 @@ extract:
         TraitKind
         TraitLevelUPKind
         TraitTiming
+        GiftColor
     )
     for item in "${idonly[@]}";
         do imhex --pl format textasset/${item}.txt patterns/multi-file/idonly.hexpat output/${item}.json;
