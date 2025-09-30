@@ -3,8 +3,11 @@ default:
 
 scenario:
     #!/usr/bin/env bash
-    rm -rf scenario
-    mkdir scenario
+    if [ ! -d output ]; then
+        mkdir scenario
+    else
+        rm -rf scenario/*
+    fi
     for item in $(find textasset/ -name 'TIMELINEEVENT*' -printf '%f\n');
         do i=${item%????};
         echo $i
@@ -13,8 +16,11 @@ scenario:
 
 extract:
     #!/usr/bin/env bash
-    rm -rf output
-    mkdir output
+    if [ ! -d output ]; then
+        mkdir output
+    else
+        rm -rf output/*
+    fi
 
     imhex --pl format textasset/Message_2.txt patterns/multi-file/message.hexpat output/Message_ENG.json
 
@@ -24,6 +30,8 @@ extract:
         TraitLevelUPKind
         TraitTiming
         GiftColor
+        RecipeDerivationMapArrow
+        RecipeDerivationType
     )
     for item in "${idonly[@]}";
         do imhex --pl format textasset/${item}.txt patterns/multi-file/idonly.hexpat output/${item}.json;

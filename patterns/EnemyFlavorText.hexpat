@@ -9,16 +9,16 @@ fn format_property(ref auto item) {
     return std::format("{} - {}", item.Tag, item.Id);
 };
 
-struct RecipeBook {
-    u32 RecipeBookId;
-    u32 ItemId;
-    u32 RecipeId1;
-    u32 RecipeId2;
-    u32 RecipeId3;
-    u32 AlwaysZero[3]; // more room for IDs I guess
+struct EnemyFlavorText {
+    u32 EnemyFlavorTextId;
+    u32 FlavorTextStringId1; // eg. "*Sip* Well, it's just normal water"
+    u32 FlavorTextStringId2;
+    u32 FlavorTextStringId3;
+    u32 FlavorTextStringId4;
+    u32 Unknown[12];
 } [[format("format_thing")]];
 fn format_thing(ref auto item) {
-    return item.ItemId[2];
+    return item.Unknown;
 };
 
 struct FullFile {
@@ -26,7 +26,7 @@ struct FullFile {
     u32 ObjectCount [[hidden]];
 
     Property Properties[PropertyCount];
-    RecipeBook Object[ObjectCount];
+    EnemyFlavorText Object[ObjectCount];
 };
 
 FullFile file @ 0x00;
