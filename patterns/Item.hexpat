@@ -15,7 +15,7 @@ struct Item {
     u32 NameStringId;
     u32 FlavorTextId;
     u32 PossiblyBasePrice;
-    u32 UnknownId2;
+    u32 ItemRankId;
     u32 UnknownId3;
     u32 UnknownId4;
     u32 UnknownId5;
@@ -32,8 +32,8 @@ struct Item {
     u32 Unknown7; // feels like bitmap
     u32 PotentialId; // nullable
     u32 UnknownSet[7]; // always zero
-    type::Hex<u32> UnknownId15; // kinda weird, idk
-    type::Hex<u32> UnknownId16;
+    u32 GiftColorId1; // kinda weird, idk
+    u32 GiftColorId2;
     u32 Unknown8;
     u32 Unknown9;
     u32 ItemColorTypeId;
@@ -42,7 +42,7 @@ struct Item {
 } [[format("format_item")]];
 fn format_item(ref auto item) {
     // return std::format("{:06b}", item.Unknown2);
-    return item.Flag4;
+    return item.ItemRankId;
     // return std::format("{} {}", item.UnknownId8, item.UnknownId9);
     // return std::format("{:06b}", item.Unknown7);
 };
@@ -50,7 +50,7 @@ fn format_item(ref auto item) {
 struct FullFile {
     u32 PropertyCount [[hidden]];
     u32 ObjectCount [[hidden]];
-    
+
     Property Properties[PropertyCount];
     Item Object[ObjectCount];
 };

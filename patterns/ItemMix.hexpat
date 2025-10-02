@@ -11,7 +11,7 @@ fn format_property(ref auto item) {
 
 struct ItemMix {
     u32 ItemMixId;
-    u32 Unknown1;
+    u32 SkillId;
     u32 Unknown2;
     u32 Unknown3; // Sometimes same as 2
     u32 AlwaysZero;
@@ -35,4 +35,4 @@ struct FullFile {
     ItemMix Object[ObjectCount];
 };
 
-FullFile file @ 0x00;
+FullFile File @ 0x00;

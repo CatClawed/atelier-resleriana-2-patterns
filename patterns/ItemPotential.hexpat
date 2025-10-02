@@ -10,16 +10,16 @@ fn format_property(ref auto item) {
 
 struct ItemPotential {
     u32 PotentialId; // found in item
-    u32 UnknownId2;
-    u32 UnknownId3;
-    u32 UnknownId4;
-    u32 UnknownId5;
-    u32 UnknownId6;
-    u32 UnknownId7;
-    u32 UnknownId8;
-    u32 UnknownId9;
-    u32 UnknownId10;
-    u32 UnknownId11;
+    u32 SkillId1;
+    u32 SkillId2;
+    u32 SkillId3;
+    u32 SkillId4;
+    u32 SkillId5;
+    u32 EffectId1;
+    u32 EffectId2;
+    u32 EffectId3;
+    u32 EffectId4;
+    u32 EffectId5;
 } [[format("format_potential")]];
 fn format_potential(ref auto item) {
     return std::format("{:08X}", item.PotentialId);
@@ -28,7 +28,7 @@ fn format_potential(ref auto item) {
 struct FullFile {
     u32 PropertyCount [[hidden]];
     u32 ObjectCount [[hidden]];
-    
+
     Property Properties[PropertyCount];
     ItemPotential Object[ObjectCount];
 };

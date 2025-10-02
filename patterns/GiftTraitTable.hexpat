@@ -27,4 +27,4 @@ struct FullFile {
     GiftTraitTable Object[ObjectCount];
 };
 
-FullFile file @ 0x00;
+FullFile File @ 0x00;

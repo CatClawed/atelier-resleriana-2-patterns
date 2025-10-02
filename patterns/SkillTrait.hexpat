@@ -9,12 +9,15 @@ fn format_property(ref auto item) {
     return std::format("{} - {}", item.Tag, item.Id);
 };
 
-struct EnemyBaseStatus {
-    u32 EnemyBaseStatusId;
-    u32 wtf[100];
+struct SkillTrait {
+    u32 SkillTraitId;
+    u32 Number;
+    u32 SkillEffectId; // I hope
+    u32 TraitBaseId;
+    u32 AllOne;
 } [[format("format_thing")]];
 fn format_thing(ref auto item) {
-    return item.EnemyBaseStatusId;
+    return item.Unknown3;
 };
 
 
@@ -23,7 +26,7 @@ struct FullFile {
     u32 ObjectCount [[hidden]];
 
     Property Properties[PropertyCount];
-    EnemyBaseStatus Object[ObjectCount];
+    SkillTrait Object[ObjectCount];
 };
 
 FullFile File @ 0x00;

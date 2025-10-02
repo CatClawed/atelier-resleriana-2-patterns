@@ -11,16 +11,16 @@ fn format_property(ref auto item) {
 
 struct ItemColorType {
     u32 ItemColorTypeId;
-    u32 Unknown2; // the same for most entries
-    u32 Unknown3;
-    u32 Unknown4; // the same for most entries
-    u32 Unknown5;
-    u32 Unknown6; // the same for most entries
-    u32 Unknown7;
-    u32 Unknown8;
-    u32 Unknown9;
-    u32 Unknown10;
-    u32 Unknown11;
+    u32 Color1;
+    u32 Color2;
+    u32 Color3;
+    u32 Color4;
+    u32 Color5;
+    u32 Color6;
+    u32 Color7;
+    u32 Color8;
+    u32 Color9;
+    u32 Color10;
 } [[format("format_colortype")]];
 fn format_colortype(ref auto item) {
     // return "";
@@ -30,7 +30,7 @@ fn format_colortype(ref auto item) {
 struct FullFile {
     u32 PropertyCount [[hidden]];
     u32 ObjectCount [[hidden]];
-    
+
     Property Properties[PropertyCount];
     ItemColorType Object[ObjectCount];
 };

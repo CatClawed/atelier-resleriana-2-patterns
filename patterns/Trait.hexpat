@@ -8,26 +8,41 @@ fn format_property(ref auto item) {
     return std::format("{} - {}", item.Tag, item.Id);
 };
 
+bitfield Transfer {
+    bool Synthesis : 1;
+    bool Combat : 1;
+    bool Restoratives : 1;
+    bool Inhibitor : 1;
+    bool Boost : 1;
+    bool Weapons : 1;
+    bool Armor : 1;
+    bool Accessories : 1;
+    bool Unknown : 1;
+    bool Exploration : 1;
+    bool Starpearls : 1;
+};
+
 struct TraitInfo {
-    u32 TraitId; // likely trait id
-    u32 EnabledFlag; // is enabled flag?
-    u32 Index; // index in the file, possibly
+    u32 TraitId;
+    u32 EnabledFlag;
+    u32 Index;
     u32 NameStringIndex;
     u32 DescriptionStringIndex;
     u32 TraitKindId1;
-    u32 GatherableFlag; // some kind of flag
+    u32 GatherableFlag;
     u32 Grade;
-    u32 Unknown2; // bitmap maybe?
+    Transfer TraitTransfer;
+    u16 Padding;
     u32 TraitBaseId;
     s32 Value1_1;
     s32 Value1_2;
     u32 TraitBaseId2;
     s32 Value2_1;
     s32 Value2_2;
-    u32 TraitKindId2; // trait group id?
+    u32 TraitKindId2;
 } [[format("format_trait")]];
 fn format_trait(ref auto trait) {
-    return trait.Value2_2;
+    return trait.TraitTransfer;
 };
 
 struct FullFile {

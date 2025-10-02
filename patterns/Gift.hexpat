@@ -18,7 +18,7 @@ struct Gift {
     u32 AlwaysZero;
     u32 Unknown1;
     u32 Unknown2; // Enemybaseinfo, itemcolortype refer to
-    u32 AlwaysZero2;
+    u32 Unknown3;
 } [[format("format_thing")]];
 fn format_thing(ref auto item) {
     return item.Unknown1;
@@ -32,4 +32,4 @@ struct FullFile {
     Gift Object[ObjectCount];
 };
 
-FullFile file @ 0x00;
+FullFile File @ 0x00;

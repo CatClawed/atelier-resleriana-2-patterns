@@ -22,7 +22,11 @@ extract:
         rm -rf output/*
     fi
 
+    imhex --pl format textasset/Message.txt patterns/multi-file/message.hexpat output/Message_JPN.json
     imhex --pl format textasset/Message_2.txt patterns/multi-file/message.hexpat output/Message_ENG.json
+    imhex --pl format textasset/Message_3.txt patterns/multi-file/message.hexpat output/Message_KOR.json
+    imhex --pl format textasset/Message_4.txt patterns/multi-file/message.hexpat output/Message_CHT.json
+    imhex --pl format textasset/Message_5.txt patterns/multi-file/message.hexpat output/Message_CHS.json
 
     idonly=(
         TraitFactor
