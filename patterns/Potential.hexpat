@@ -22,18 +22,18 @@ struct Effect {
     u32 ValueTag1;
     u32 ValueTag2;
     u32 ValueTag3;
-    u32 Value0_1;
-    u32 Value1_1;
-    u32 Value2_1;
-    u32 Value3_1;
-    u32 Value0_2;
-    u32 Value1_2;
-    u32 Value2_2;
-    u32 Value3_2;
+    s32 Value0_1;
+    s32 Value1_1;
+    s32 Value2_1;
+    s32 Value3_1;
+    s32 Value0_2;
+    s32 Value1_2;
+    s32 Value2_2;
+    s32 Value3_2;
 } [[format("format_flavortext")]];
 fn format_flavortext(ref auto item) {
     // return "";
-    return item.Unknown2;
+    return item.Value2_1;
 };
 
 struct FullFile {

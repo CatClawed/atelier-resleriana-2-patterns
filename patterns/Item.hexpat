@@ -16,7 +16,7 @@ struct Item {
     u32 FlavorTextId;
     u32 PossiblyBasePrice;
     u32 ItemRankId;
-    u32 UnknownId3;
+    u32 UnknownId3; // no references outside of item
     u32 UnknownId4;
     u32 UnknownId5;
     u32 UnknownId6;
@@ -30,7 +30,7 @@ struct Item {
     u32 UnknownId13; // same
     u32 Unknown6; // 50, 100 or 150
     u32 Unknown7; // feels like bitmap
-    u32 PotentialId; // nullable
+    u32 ItemPotentialId; // nullable
     u32 UnknownSet[7]; // always zero
     u32 GiftColorId1; // kinda weird, idk
     u32 GiftColorId2;
@@ -38,7 +38,7 @@ struct Item {
     u32 Unknown9;
     u32 ItemColorTypeId;
     u32 Flag4;
-    u32 UnknownId18; // nullable
+    u32 DLCId; // nullable
 } [[format("format_item")]];
 fn format_item(ref auto item) {
     // return std::format("{:06b}", item.Unknown2);

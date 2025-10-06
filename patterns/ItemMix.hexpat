@@ -15,7 +15,7 @@ struct ItemMix {
     u32 Unknown2;
     u32 Unknown3; // Sometimes same as 2
     u32 AlwaysZero;
-    u32 ItemId;
+    u32 ItemId1;
     u32 ItemId2; // referenced indatabase and enemybaseinfo at least sometimes
     u32 ItemId3;
     u32 Number1; // 0, 10, or 20

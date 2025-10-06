@@ -9,20 +9,18 @@ fn format_property(ref auto item) {
     return std::format("{} - {}", item.Tag, item.Id);
 };
 
-struct Gift {
-    u32 GiftId;
+struct NpcShopMerchandise {
+    u32 NpcShopMerchandiseId;
+    u32 Unknown1;
     u32 ItemId;
-    u32 LevelMin;
-    u32 LevelMax;
-    u32 TraitId1;
-    u32 TraitId2;
-    u32 AlwaysZero;
-    u32 GiftTraitLotteryDataTableId;
-    u32 GiftColorId1;
-    u32 GiftColorId2;
+    u32 GiftId;
+    u32 Price;
+    u32 Limited;
+    u32 Shop;
+    u32 UnlockFlagId;
 } [[format("format_thing")]];
 fn format_thing(ref auto item) {
-    return item.Numbers;
+    return item.Unknown1;
 };
 
 struct FullFile {
@@ -30,7 +28,7 @@ struct FullFile {
     u32 ObjectCount [[hidden]];
 
     Property Properties[PropertyCount];
-    Gift Object[ObjectCount];
+    NpcShopMerchandise Object[ObjectCount];
 };
 
 FullFile File @ 0x00;

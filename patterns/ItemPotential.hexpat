@@ -9,7 +9,7 @@ fn format_property(ref auto item) {
 };
 
 struct ItemPotential {
-    u32 PotentialId; // found in item
+    u32 ItemPotentialId; // found in item
     u32 SkillId1;
     u32 SkillId2;
     u32 SkillId3;
