@@ -9,14 +9,12 @@ fn format_property(ref auto item) {
     return std::format("{} - {}", item.Tag, item.Id);
 };
 
-struct RecipeChange {
-    u32 RecipeChangeId;
-    u32 ItemBaseId;
-    u32 ItemResultId;
-    u32 IngredientId;
+struct AilmentResistance {
+    u32 AilmentResistanceId; // I think this is ailments
+    s32 Numbers[8];
 } [[format("format_thing")]];
 fn format_thing(ref auto item) {
-    return item.ItemId;
+    return item.Numbers;
 };
 
 struct FullFile {
@@ -24,7 +22,7 @@ struct FullFile {
     u32 ObjectCount [[hidden]];
 
     Property Properties[PropertyCount];
-    RecipeChange Object[ObjectCount];
+    AilmentResistance Object[ObjectCount];
 };
 
 FullFile File @ 0x00;

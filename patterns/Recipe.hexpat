@@ -12,12 +12,14 @@ fn format_property(ref auto item) {
 struct Recipe {
     u32 RecipeId;
     u32 Index;
-    u32 ItemId1;
-    u32 Numbers[3];
-    u32 ItemId2;
-    u32 ItemId3;
-    u32 ItemId4; // morph ing?
-    u32 ItemId5; // morph ing?
+    u32 ItemId;
+    u32 Quantity;
+    u32 FlagMaybe;
+    u32 Uses;
+    u32 IngredientId1;
+    u32 IngredientId2;
+    u32 IngredientId3;
+    u32 IngredientId4;
     u32 CategoryId1;
     u32 CategoryId2;
     u32 CategoryId3;

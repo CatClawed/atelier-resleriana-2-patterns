@@ -10,30 +10,22 @@ fn format_property(ref auto item) {
 };
 
 struct EnemyBaseInfo {
-    u32 EnemyBaseID;
-    u32 Unknown1;
-    u32 Unknown2;
-    u32 Unknown3; // commonly equal to Unknown4
-    u32 Unknown4;
-    u32 Unknown5;
-    u32 Unknown6;
-    u32 Unknown7;
-    u32 Unknown8;
-    u32 Unknown9;
-    u32 Unknown10;
-    u32 Unknown11;
-    u32 Unknown12;
-    u32 Unknown13;
+    u32 EnemyBaseInfoId;
+    u32 Unknown1[2];
+    u32 EnemyGenusId;
+    u32 EnemyKindId; // often just a copy of the above
+    u32 FlavorTextId;
+    u32 Unknown2[8];
     float Floats1[2];
-    u32 Unknown14;
+    u32 GiftColorId;
     u32 NameStringId;
-    u32 Unknown15;
-    u32 Unknown16;
+    u32 EnemyGenusId2; // butwhy
+    u32 EnemySizeTypeId;
     u32 Flag;
     float Floats2[6];
 } [[format("format_thing")]];
 fn format_thing(ref auto item) {
-    return item.Flag;
+    return item.EnemyGenusId2;
 };
 
 struct FullFile {

@@ -11,7 +11,7 @@ fn format_property(ref auto item) {
 
 struct ElementResistance {
     u32 ElementResistanceId;
-    u32 Numbers[6]; // sometimes E7 FF FF FF, sometimes 0 - 120
+    s32 Numbers[6];
 } [[format("format_thing")]];
 fn format_thing(ref auto item) {
     return item.Numbers;
