@@ -11,10 +11,9 @@ fn format_property(ref auto item) {
 
 struct RecipeDerivationMapPosition {
     u32 RecipeDerivationMapPositionId;
-    u32 RecipeDerivationBaseId[5];
-    u32 RecipeDerivationMapId[9];
-    u32 RecipeDerivationMapArrow1[12]; // two values seem to appear
-    u32 RecipeDerivationMapArrow2[14]; // usually same values, sometimes a second value
+    u32 RecipeDerivationBaseId;
+    u32 RecipeDerivationMapId[13];
+    u32 RecipeDerivationMapArrow[26];
 } [[format("format_thing")]];
 fn format_thing(ref auto item) {
     return item.RecipeDerivationMapId;

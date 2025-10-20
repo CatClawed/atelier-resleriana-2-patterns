@@ -14,8 +14,9 @@ fn format_property(ref auto item) {
 struct DropGiftTable {
     u32 DropGiftTableId;
     u32 Unknown1[5]; // Either Zero or the same number
-    u32 Unknown2[5]; // this one has diversity
-    u32 Values[10]; // some values one'd out
+    u32 GiftIds[5];
+    s32 Flags[5];
+    s32 Values[5];
 } [[format("format_thing")]];
 fn format_thing(ref auto item) {
     return item.Values;

@@ -11,13 +11,13 @@ fn format_property(ref auto item) {
 
 struct RecipeDerivationMap {
     u32 RecipeDerivationMapId;
-    u32 UnknownId; // Referenced in flavor text, either 0 or the same two IDs
-    u32 RecipeId1;
-    u32 RecipeId2; // often 0
-    u32 ItemId; // often 0
+    u32 RecipeOpenCharaId;
+    u32 RecipeDerivationTypeId;
+    u32 RecipeId; // 0 when ItemId exists
+    u32 ItemId; // 0 when RecipeId exists
 } [[format("format_thing")]];
 fn format_thing(ref auto item) {
-    return item.UnknownId;
+    return std::format("{} - {}", item.RecipeId, item.ItemId);
 };
 
 struct FullFile {
