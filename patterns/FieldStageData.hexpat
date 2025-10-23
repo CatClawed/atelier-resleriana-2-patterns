@@ -9,17 +9,17 @@ fn format_property(ref auto item) {
     return std::format("{} - {}", item.Tag, item.Id);
 };
 
-struct GimTreasure {
-    u32 TreasureId;
-    u32 Unknown;
-    u32 AlwaysZero;
-    u32 Flag;
-    u32 GiftId;
-    u32 ItemId; // mostly doesn't exist
-    u32 MaybeIndex; // 0 doesn't exist?
+struct FieldStageData {
+    u32 FieldStageDataId;
+    u32 FieldStageInfoId;
+    u32 Flags[2];
+    u32 GimmickTypeId;
+    u32 GimId; // can be many files, determined by type id? ugh. 2059211439 = gathering
+    float Floats[9];
+    u32 Numbers[5];
 } [[format("format_thing")]];
 fn format_thing(ref auto item) {
-    return item.Unknown;
+    return std::format("{} - {}", item.GimmickTypeId, item.GimId);
 };
 
 struct FullFile {
@@ -27,7 +27,7 @@ struct FullFile {
     u32 ObjectCount [[hidden]];
 
     Property Properties[PropertyCount];
-    GimTreasure Object[ObjectCount];
+    FieldStageData Object[ObjectCount];
 };
 
 FullFile File @ 0x00;

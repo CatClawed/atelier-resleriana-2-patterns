@@ -1,6 +1,8 @@
 import type.base;
 import std.io;
 
+// Seems to specify text for basic actions
+
 struct Property {
     u32 Tag;
     u32 Id;
@@ -9,17 +11,9 @@ fn format_property(ref auto item) {
     return std::format("{} - {}", item.Tag, item.Id);
 };
 
-struct GimTreasure {
-    u32 TreasureId;
-    u32 Unknown;
-    u32 AlwaysZero;
-    u32 Flag;
-    u32 GiftId;
-    u32 ItemId; // mostly doesn't exist
-    u32 MaybeIndex; // 0 doesn't exist?
-} [[format("format_thing")]];
-fn format_thing(ref auto item) {
-    return item.Unknown;
+struct GimmickType {
+    u32 GimmickTypeId;
+    u32 MessageId;
 };
 
 struct FullFile {
@@ -27,7 +21,7 @@ struct FullFile {
     u32 ObjectCount [[hidden]];
 
     Property Properties[PropertyCount];
-    GimTreasure Object[ObjectCount];
+    GimmickType Object[ObjectCount];
 };
 
 FullFile File @ 0x00;

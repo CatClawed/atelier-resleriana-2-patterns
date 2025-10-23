@@ -9,22 +9,22 @@ fn format_property(ref auto item) {
     return std::format("{} - {}", item.Tag, item.Id);
 };
 
-// Dimensional Path I guess?
-struct DungeonBase {
-    u32 DungeonBaseId;
-    u32 Index; // last one seems dummy, 1'd out
-    u32 DungeonNameId; // message
+struct FieldStageInfo {
+    u32 FieldStageInfoId;
+    u32 Index;
+    u32 FieldAreaInfoId;
+    u32 MessageId;
     u32 StageReverbId[2];
-    u32 Unknown1;
-    u32 Numbers1[3];
-    u32 SomeBgmId[5]; // 0 and 2 are same, 1 and 3 are same
-    u32 DungeonSpecialId;
-    u32 BonusStringId; // message
-    u32 Numbers2[10]; // last two may be flags
-    u32 GimId;
+    u32 UnknownBgmId[5]; // I ain't looking
+    u32 Unknown1[3]; // always the same
+    u32 Flag[2];
+    u32 Number[2];
+    u32 Unknown2[2];
+    float Float[2];
+    u32 MostlyFlags[5];
 } [[format("format_thing")]];
 fn format_thing(ref auto item) {
-    return item.Numbers2;
+    return item.MostlyFlags;
 };
 
 struct FullFile {
@@ -32,7 +32,7 @@ struct FullFile {
     u32 ObjectCount [[hidden]];
 
     Property Properties[PropertyCount];
-    DungeonBase Object[ObjectCount];
+    FieldStageInfo Object[ObjectCount];
 };
 
 FullFile File @ 0x00;

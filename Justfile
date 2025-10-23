@@ -29,6 +29,7 @@ extract:
     imhex --pl format textasset/Message_5.txt patterns/multi-file/message.hexpat output/Message_CHS.json
 
     idonly=(
+        ExploreEquipType
         TraitFactor
         TraitKind
         TraitLevelUPKind

@@ -9,17 +9,19 @@ fn format_property(ref auto item) {
     return std::format("{} - {}", item.Tag, item.Id);
 };
 
-struct GimTreasure {
-    u32 TreasureId;
+struct GimLandmark {
+    u32 GimLandmarkId;
+    u32 MessageId; // area name
+    u32 GimPortalId;
+    u32 FieldAreaInfoId;
     u32 Unknown;
-    u32 AlwaysZero;
-    u32 Flag;
-    u32 GiftId;
-    u32 ItemId; // mostly doesn't exist
-    u32 MaybeIndex; // 0 doesn't exist?
+    u32 FieldStageInfoId;
+    u32 Flag1;
+    u32 DungeonBaseId;
+    u32 Flag2[3];
 } [[format("format_thing")]];
 fn format_thing(ref auto item) {
-    return item.Unknown;
+    return item.Flag2;
 };
 
 struct FullFile {
@@ -27,7 +29,7 @@ struct FullFile {
     u32 ObjectCount [[hidden]];
 
     Property Properties[PropertyCount];
-    GimTreasure Object[ObjectCount];
+    GimLandmark Object[ObjectCount];
 };
 
 FullFile File @ 0x00;
