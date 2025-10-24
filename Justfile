@@ -8,10 +8,10 @@ scenario:
     else
         rm -rf scenario/*
     fi
-    for item in $(find textasset/ -name 'TIMELINEEVENT*' -printf '%f\n');
+    for item in $(find textasset/scenario -printf '%f\n');
         do i=${item%????};
         echo $i
-        imhex --pl format textasset/${i}.txt patterns/multi-file/timelineevent.hexpat scenario/${i}.json;
+        imhex --pl format textasset/scenario/${i}.txt patterns/multi-file/timelineevent.hexpat scenario/${i}.json;
     done
 
 extract:
