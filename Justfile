@@ -10,7 +10,6 @@ scenario:
     fi
     for item in $(find textasset/scenario -printf '%f\n');
         do i=${item%????};
-        echo $i
         imhex --pl format textasset/scenario/${i}.txt patterns/multi-file/timelineevent.hexpat scenario/${i}.json;
     done
 

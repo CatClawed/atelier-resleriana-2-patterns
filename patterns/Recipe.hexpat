@@ -24,6 +24,7 @@ struct Recipe {
     u32 CategoryId2;
     u32 CategoryId3;
     u32 Flag;
+    u32 DlcId;
 } [[format("format_thing")]];
 fn format_thing(ref auto item) {
     return item.Flag;

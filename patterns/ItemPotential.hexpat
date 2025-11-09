@@ -20,9 +20,10 @@ struct ItemPotential {
     u32 EffectId3;
     u32 EffectId4;
     u32 EffectId5;
+    u32 DlcId;
 } [[format("format_potential")]];
 fn format_potential(ref auto item) {
-    return std::format("{:08X}", item.PotentialId);
+    return std::format("{:08X}", item.ItemPotentialId);
 };
 
 struct FullFile {

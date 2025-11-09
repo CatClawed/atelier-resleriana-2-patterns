@@ -30,10 +30,11 @@ struct Effect {
     s32 Value1_2;
     s32 Value2_2;
     s32 Value3_2;
+    u32 DlcId;
 } [[format("format_flavortext")]];
 fn format_flavortext(ref auto item) {
     // return "";
-    return item.Value2_1;
+    return item.wtf;
 };
 
 struct FullFile {

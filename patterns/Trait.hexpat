@@ -40,6 +40,7 @@ struct TraitInfo {
     s32 Value2_1;
     s32 Value2_2;
     u32 TraitKindId2;
+    u32 DlcId;
 } [[format("format_trait")]];
 fn format_trait(ref auto trait) {
     return trait.TraitTransfer;
