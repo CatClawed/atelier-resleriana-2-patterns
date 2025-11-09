@@ -9,27 +9,23 @@ fn format_property(ref auto item) {
     return std::format("{} - {}", item.Tag, item.Id);
 };
 
-struct AilmentResistance {
-    u32 AilmentResistanceId; // I think this is ailments
-    s32 Blind;
-    s32 Paralysis;
-    s32 Poison;
-    s32 Burn;
-    s32 Taunt;
-    s32 Sleep;
-    s32 Daze;
-    s32 Frostbite;
+struct BattleCreatePanel {
+    u32 BattleCreatePanelId;
+    u32 Unknown1;
+    u32 BattleConditionId;
+    u32 Unknown3;
 } [[format("format_thing")]];
 fn format_thing(ref auto item) {
-    return item.Numbers;
+    return item.Unknown1;
 };
+
 
 struct FullFile {
     u32 PropertyCount [[hidden]];
     u32 ObjectCount [[hidden]];
 
     Property Properties[PropertyCount];
-    AilmentResistance Object[ObjectCount];
+    BattleCreatePanel Object[ObjectCount];
 };
 
 FullFile File @ 0x00;

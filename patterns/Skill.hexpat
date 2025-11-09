@@ -17,13 +17,8 @@ struct Skill {
     u32 Unknown1[4];
     s32 Numbers1[4];
     u32 Unknown2[8];
-    s32 Power1;
-    u32 AlwaysZero2;
-    s32 Values1[14];
-    s32 Power2;
-    u32 AlwaysZero3;
-    s32 Values2[14];
-    //u32 Numbers2[32];
+    s32 Values1[16];
+    s32 Values2[16];
     u32 Unknown3[14];
     u32 AlwaysZero4[2];
     u32 Number;
